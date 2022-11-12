@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     justifyContent: "space-around",
     marginHorizontal: 20,
+    marginVertical: 10,
     padding: 10,
     borderRadius: 50,
 
