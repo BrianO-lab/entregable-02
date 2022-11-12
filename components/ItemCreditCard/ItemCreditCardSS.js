@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   ItemCreditCard: {
-    flexDirection: "row",
-    // width: "100%",
-    // textAlign: "center",
+ 
+    width: "auto",
+
     backgroundColor: "#ffffff",
     justifyContent: "space-around",
     marginHorizontal: 20,
@@ -14,8 +14,16 @@ const styles = StyleSheet.create({
 
 
   },
-  Text:{
-    fontSize: 20,
+  ContainerText: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  Text: {
+    fontSize: 15,
+
+
+
   }
 
 

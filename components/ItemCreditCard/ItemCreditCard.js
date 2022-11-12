@@ -5,7 +5,7 @@ import styles from "./ItemCreditCardSS"
 const ItemCreditCard = (props) => {
   return (
     <View style={styles.ItemCreditCard}>
-      <TouchableOpacity >
+      <TouchableOpacity style={styles.ContainerText}>
         <Text style={styles.Text}>Terminada en {props.value}</Text>
         <Text style={styles.Text}>$ 12345</Text>
       </TouchableOpacity>

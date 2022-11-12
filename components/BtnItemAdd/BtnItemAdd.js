@@ -3,13 +3,11 @@ import React from 'react'
 import styles from './BtnItemAddSS'
 
 const BtnItemAdd = (props) => {
-  const handleClick =()=>{
-    if (props.onPress) props.onPress();
-  }
+  const { actionModalAddInput } = props;
   return (
 
     <View style={styles.ButtonContainer}>
-      <TouchableOpacity style={styles.Btn} onPress={handleClick} >
+      <TouchableOpacity style={styles.Btn} onPress={() => actionModalAddInput()} >
         <Text style={styles.BtnText}>
           +
         </Text>
