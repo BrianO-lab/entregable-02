@@ -9,16 +9,13 @@ import { useState } from 'react'
 const ViewMain = () => {
   const [numberCard, setNumberCard] = useState("");
   const [list, setList] = useState([]);
+  const [cardSelected, setCardSelected] = useState({});
 
   const [modalAddInputVisible, setModalAddInputVisible] = useState(false);
 
   const onHandleChange = (t) => setNumberCard(t);
 
-  const renderItem = ({ item }) => (
-    <ItemCreditCard
-      value={item.value}
-    />
-  );
+
   const addItem = () => {
     setList((currentItems) => [
       ...currentItems,
@@ -26,11 +23,34 @@ const ViewMain = () => {
     ]);
 
   };
+  const selectedCard = (id) => {
+    setCardSelected(list.find((item) => item.id === id));
+  };
+
+  const deleteCard = (id) => {
+    selectedCard(id);
+    setList((currentState) =>
+      currentState.filter((item) => item.id !== cardSelected.id)
+    );
+
+  };
 
   const activeModalAddInput = () => {
-
     setModalAddInputVisible(true);
   };
+
+  const renderItem = ({ item }) => (
+
+    <View style={{ flexDirection: "row", }}>
+      <ItemCreditCard
+        value={item.value}
+      />
+      <TouchableOpacity onPress={() => deleteCard(item.id)} >
+        <Text> X</Text>
+      </TouchableOpacity>
+    </View>
+
+  );
 
   return (
     <View style={styles.container}>
@@ -56,7 +76,7 @@ const ViewMain = () => {
             añadir
           </Text>
         </TouchableOpacity>
-      </View> 
+      </View>
       {/* <ModalAddInput
         isVisible={modalAddInputVisible}
         actionModalAddItem={addItem}
