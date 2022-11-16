@@ -11,21 +11,21 @@ const ModalAddInput = (props) => {
   const onHandleChange = (t) => setNumberCard(t);
   return (
     <NewModal animationType="fade" transparent={true} visible={isVisible}>
-     
-        <View style={styles.ContainerModal}>
-          <TextInput
-            placeholder="new item"
-            placeholderTextColor="black"
-            value={numberCard}
-            onChangeText={onHandleChange}
-          />
-          <TouchableOpacity onPress={() => actionModalAddItem(numberCard)}>
-            <Text>
-              añadir
-            </Text>
-          </TouchableOpacity>
-        </View>
-  
+
+      <View style={styles.ContainerModal}>
+        <TextInput
+          placeholder="new item"
+          placeholderTextColor="black"
+          value={numberCard}
+          onChangeText={onHandleChange}
+        />
+        <TouchableOpacity onPress={() => actionModalAddItem(numberCard)}>
+          <Text>
+            añadir
+          </Text>
+        </TouchableOpacity>
+      </View>
+
     </NewModal>
 
 

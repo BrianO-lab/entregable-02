@@ -10,8 +10,9 @@ const ViewMain = () => {
   const [numberCard, setNumberCard] = useState("");
   const [list, setList] = useState([]);
   const [cardSelected, setCardSelected] = useState({});
-
+  const [okStatus, setOkStatus] = useState("❌");
   const [modalAddInputVisible, setModalAddInputVisible] = useState(false);
+
 
   const onHandleChange = (t) => setNumberCard(t);
 
@@ -21,6 +22,7 @@ const ViewMain = () => {
       ...currentItems,
       { id: Math.random().toString(), value: numberCard },
     ]);
+    setNumberCard("");
 
   };
   const selectedCard = (id) => {
@@ -28,9 +30,9 @@ const ViewMain = () => {
   };
 
   const deleteCard = (id) => {
-    selectedCard(id);
+    // selectedCard(id);
     setList((currentState) =>
-      currentState.filter((item) => item.id !== cardSelected.id)
+      currentState.filter((item) => item.id !== id)
     );
 
   };
@@ -44,9 +46,11 @@ const ViewMain = () => {
     <View style={{ flexDirection: "row", }}>
       <ItemCreditCard
         value={item.value}
+        idItem={item.id}
+        actionBtnDelet={deleteCard}
       />
-      <TouchableOpacity onPress={() => deleteCard(item.id)} >
-        <Text> X</Text>
+      <TouchableOpacity onPress={() => { setOkStatus("✅") }}>
+        <Text>{okStatus}</Text>
       </TouchableOpacity>
     </View>
 
