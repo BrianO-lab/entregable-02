@@ -6,16 +6,15 @@ import ModalAddInput from "../Modal/ModalAddInput/ModalAddInput"
 import styles from "./ViewMainSS"
 import { useState } from 'react'
 
-const ViewMain = () => {
+const ViewMain = (props) => {
+  const { switchDisplayCreditCard } = props;
   const [numberCard, setNumberCard] = useState("");
   const [list, setList] = useState([]);
   const [cardSelected, setCardSelected] = useState({});
   const [okStatus, setOkStatus] = useState("❌");
   const [modalAddInputVisible, setModalAddInputVisible] = useState(false);
 
-
   const onHandleChange = (t) => setNumberCard(t);
-
 
   const addItem = () => {
     setList((currentItems) => [
@@ -23,7 +22,6 @@ const ViewMain = () => {
       { id: Math.random().toString(), value: numberCard },
     ]);
     setNumberCard("");
-
   };
   const selectedCard = (id) => {
     setCardSelected(list.find((item) => item.id === id));
@@ -34,12 +32,15 @@ const ViewMain = () => {
     setList((currentState) =>
       currentState.filter((item) => item.id !== id)
     );
-
   };
 
   const activeModalAddInput = () => {
     setModalAddInputVisible(true);
   };
+
+
+
+
 
   const renderItem = ({ item }) => (
 
@@ -48,6 +49,8 @@ const ViewMain = () => {
         value={item.value}
         idItem={item.id}
         actionBtnDelet={deleteCard}
+        switchDisplay={switchDisplayCreditCard}
+
       />
       <TouchableOpacity onPress={() => { setOkStatus("✅") }}>
         <Text>{okStatus}</Text>

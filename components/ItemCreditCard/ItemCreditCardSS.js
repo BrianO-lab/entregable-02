@@ -7,33 +7,33 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     padding: 10,
     borderRadius: 50,
-    
+
   },
   ItemCreditCardContainer: {
-    flex:1,
+    flex: 1,
     flexDirection: "row",
-    width:"100%"
-    
+    width: "100%"
+
   },
 
   ContainerText: {
     flexDirection: "row",
-    
-    width:"80%"
-    
-    
+
+    width: "80%"
+
+
 
   },
   Text: {
     fontSize: 15,
   },
-  BtnDeletContainer:{
-    
-    width:"20%"
+  BtnDeletContainer: {
+
+    width: "20%"
   },
   BtnDelet: {
-    
-    
+
+
   }
 
 

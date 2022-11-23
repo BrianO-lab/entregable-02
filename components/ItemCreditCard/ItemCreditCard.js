@@ -3,11 +3,11 @@ import React from 'react'
 import styles from "./ItemCreditCardSS"
 
 const ItemCreditCard = (props) => {
-  const { value, actionBtnDelet, idItem } = props;
+  const { value, actionBtnDelet, idItem, switchDisplay } = props;
   return (
     <View style={styles.ItemCreditCard}>
       <View style={styles.ItemCreditCardContainer} >
-        <TouchableOpacity style={styles.ContainerText}>
+        <TouchableOpacity style={styles.ContainerText} onPress={() => switchDisplay(value)}>
           <Text style={styles.Text}>Terminada en {value}</Text>
           <Text style={styles.Text}>$12345</Text>
         </TouchableOpacity>
