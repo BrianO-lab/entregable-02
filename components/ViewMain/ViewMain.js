@@ -4,22 +4,25 @@ import ItemCreditCard from "../../components/ItemCreditCard/ItemCreditCard"
 import BtnItemAdd from "../../components/BtnItemAdd/BtnItemAdd"
 import ModalAddInput from "../Modal/ModalAddInput/ModalAddInput"
 import styles from "./ViewMainSS"
-import { useState } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 
 const ViewMain = (props) => {
   const { switchDisplayCreditCard } = props;
   const [numberCard, setNumberCard] = useState("");
   const [list, setList] = useState([]);
   const [cardSelected, setCardSelected] = useState({});
-  const [okStatus, setOkStatus] = useState("❌");
+  // const [okStatus, setOkStatus] = useState("❌");
   const [modalAddInputVisible, setModalAddInputVisible] = useState(false);
-
   const onHandleChange = (t) => setNumberCard(t);
+
+  // useEffect(() => {
+  //   renderItem()
+  // })
 
   const addItem = () => {
     setList((currentItems) => [
       ...currentItems,
-      { id: Math.random().toString(), value: numberCard },
+      { id: Math.random().toString(), value: numberCard, status: "❌" },
     ]);
     setNumberCard("");
   };
@@ -40,6 +43,24 @@ const ViewMain = (props) => {
 
 
 
+  const changeStatus = (id) => {
+
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item, status: "✅"
+        }
+      } else {
+        return item;
+      }
+    });
+    setList(newList);
+    // { console.log(okStatus) }
+    // item.status = "✅";
+
+
+  };
+
 
 
   const renderItem = ({ item }) => (
@@ -52,11 +73,11 @@ const ViewMain = (props) => {
         switchDisplay={switchDisplayCreditCard}
 
       />
-      <TouchableOpacity onPress={() => { setOkStatus("✅") }}>
-        <Text>{okStatus}</Text>
+      <TouchableOpacity onPress={() => { changeStatus(item.id) }}>
+        {console.log(item.keyExtractor)}
+        <Text>{item.status}</Text>
       </TouchableOpacity>
     </View>
-
   );
 
   return (
