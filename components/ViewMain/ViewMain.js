@@ -1,4 +1,3 @@
-
 import { Button, FlatList, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import ItemCreditCard from "../../components/ItemCreditCard/ItemCreditCard"
 import BtnItemAdd from "../../components/BtnItemAdd/BtnItemAdd"
@@ -7,17 +6,15 @@ import styles from "./ViewMainSS"
 import { useState, useEffect, useReducer } from 'react'
 
 const ViewMain = (props) => {
-  const { switchDisplayCreditCard } = props;
+  const { switchDisplayCreditCard, arrayCard, arraySetCard } = props;
   const [numberCard, setNumberCard] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(arrayCard);
   const [cardSelected, setCardSelected] = useState({});
-  // const [okStatus, setOkStatus] = useState("❌");
+
   const [modalAddInputVisible, setModalAddInputVisible] = useState(false);
   const onHandleChange = (t) => setNumberCard(t);
 
-  // useEffect(() => {
-  //   renderItem()
-  // })
+
 
   const addItem = () => {
     setList((currentItems) => [
@@ -31,7 +28,6 @@ const ViewMain = (props) => {
   };
 
   const deleteCard = (id) => {
-    // selectedCard(id);
     setList((currentState) =>
       currentState.filter((item) => item.id !== id)
     );
@@ -41,10 +37,7 @@ const ViewMain = (props) => {
     setModalAddInputVisible(true);
   };
 
-
-
   const changeStatus = (id) => {
-
     const newList = list.map((item) => {
       if (item.id === id) {
         return {
@@ -55,26 +48,21 @@ const ViewMain = (props) => {
       }
     });
     setList(newList);
-    // { console.log(okStatus) }
-    // item.status = "✅";
-
-
   };
-
-
 
   const renderItem = ({ item }) => (
 
     <View style={{ flexDirection: "row", }}>
+
       <ItemCreditCard
         value={item.value}
         idItem={item.id}
         actionBtnDelet={deleteCard}
         switchDisplay={switchDisplayCreditCard}
-
+        newlistCard={list}
       />
       <TouchableOpacity onPress={() => { changeStatus(item.id) }}>
-        {console.log(item.keyExtractor)}
+
         <Text>{item.status}</Text>
       </TouchableOpacity>
     </View>

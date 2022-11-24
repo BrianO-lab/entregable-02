@@ -14,10 +14,12 @@ export default function App() {
   });
   const [screenCreditCard, setScreenCreditCard] = useState(false);
   const [numberCreditCardSelect, setNumberCreditCardSelect] = useState("");
+  const [list, setList] = useState([])
 
-  const handleScreenCreditCard = (numberCreditCard) => {
+  const handleScreenCreditCard = (numberCreditCard, newlistCard) => {
     setNumberCreditCardSelect(numberCreditCard);
     setScreenCreditCard(true);
+    setList(newlistCard);
   };
   const backToMain = () => {
     setScreenCreditCard(false)
@@ -27,7 +29,7 @@ export default function App() {
   if (screenCreditCard) {
     content = <ViewCard numberCreditCardSelect={numberCreditCardSelect} backToMainMenu={backToMain} />
   } else {
-    content = <ViewMain switchDisplayCreditCard={handleScreenCreditCard} />;
+    content = <ViewMain switchDisplayCreditCard={handleScreenCreditCard} arrayCard={list} arraySetCard={setList}/>;
   };
 
 
