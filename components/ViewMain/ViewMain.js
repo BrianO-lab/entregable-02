@@ -80,18 +80,26 @@ const ViewMain = (props) => {
       <BtnItemAdd
         actionModalAddInput={activeModalAddInput}
       />
-      <View>
-        <TextInput
-          placeholder="new item"
-          placeholderTextColor="black"
-          value={numberCard}
-          onChangeText={onHandleChange}
-        />
-        <TouchableOpacity onPress={addItem}>
-          <Text>
-            añadir
-          </Text>
-        </TouchableOpacity>
+      <View style={styles.newItem}>
+        <View style={styles.inputTextConteiner}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="new item"
+            placeholderTextColor="grey"
+            value={numberCard}
+            onChangeText={onHandleChange}
+          />
+        </View>
+        <View style={styles.btnAdd}>
+          <TouchableOpacity onPress={addItem} style={styles.btnAddText}>
+            <Text style={styles.btnAddText}>
+              Añadir
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+
+
       </View>
       {/* <ModalAddInput
         isVisible={modalAddInputVisible}
