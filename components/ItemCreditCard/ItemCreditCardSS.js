@@ -13,17 +13,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     width: "100%"
-
   },
 
   ContainerText: {
     flexDirection: "row",
-
     width: "80%"
-
-
-
   },
+
   Text: {
     fontSize: 15,
   },
@@ -32,7 +28,6 @@ const styles = StyleSheet.create({
     width: "20%"
   },
   BtnDelet: {
-
 
   }
 

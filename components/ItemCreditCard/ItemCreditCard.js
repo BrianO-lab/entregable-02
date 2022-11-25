@@ -9,7 +9,7 @@ const ItemCreditCard = (props) => {
       <View style={styles.ItemCreditCardContainer} >
         <TouchableOpacity style={styles.ContainerText} onPress={() => switchDisplay(value,newlistCard)}>
           <Text style={styles.Text}>Terminada en {value}</Text>
-          <Text style={styles.Text}>$12345</Text>
+          
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => actionBtnDelet(idItem)} >

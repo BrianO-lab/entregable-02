@@ -29,7 +29,7 @@ export default function App() {
   if (screenCreditCard) {
     content = <ViewCard numberCreditCardSelect={numberCreditCardSelect} backToMainMenu={backToMain} />
   } else {
-    content = <ViewMain switchDisplayCreditCard={handleScreenCreditCard} arrayCard={list} arraySetCard={setList}/>;
+    content = <ViewMain switchDisplayCreditCard={handleScreenCreditCard} arrayCard={list} arraySetCard={setList} />;
   };
 
 
@@ -42,7 +42,7 @@ export default function App() {
     <View style={styles.container}>
 
       {content}
-
+      <StatusBar style="auto" />
     </View>
 
   );

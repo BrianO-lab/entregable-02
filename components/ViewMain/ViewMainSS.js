@@ -27,12 +27,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0,
     shadowRadius: 4.65,
-
     elevation: 8,
   },
   inputText: {
     textAlign: 'center',
-
   },
 
   btnAdd: {
